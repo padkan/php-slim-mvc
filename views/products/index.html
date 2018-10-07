@@ -1,0 +1,42 @@
+
+    <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+        <div class="btn-group">
+            <select class="form-control colorReq" style="background: #dedede">
+                <option value="">select color </option>
+                <?php foreach($this->data['variant']['color'] as $color){ ?>
+                <option value="<?= $color['id'] ?>" style="color:<?= $color['description'] ?> "> <?= $color['name'] ?></option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+        <?php foreach($data['products'] as $product){ ?>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="/uploads/products/main/<?= $product['image'] ?>.jpg" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        <?= $product['name'] ?></h4>
+                    <p class="group inner list-group-item-text">
+                        <?= $product['small_desc'] ?></p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $<?= $product['price_gross'] ?></p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success my-cart-btn" href="#" data-id="<?= $product['id'] ?>" data-name="<?= $product['name'] ?>" data-summary="<?= $product['small_desc'] ?>" data-price="<?= $product['price_gross'] ?>" data-quantity="1" data-image="/uploads/products/thumb/<?= $product['image'] ?>.jpg">Add to Cart</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php  } ?>
+    </div>

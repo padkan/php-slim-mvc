@@ -1,0 +1,26 @@
+<h4 class="w3ls-hdg">Order detail</h4>
+<div class="col-xs-6 col-md-6 col-lg-6">
+    <table class="table table-bordered" >
+        <thead>
+        <tr>
+            <th> # </th>
+            <th>order_id</th>
+            <th>product_id</th>
+            <th>qty</th>
+            <th>price</th>
+        </tr>
+        </thead>
+        <tbody class="viewCart">
+        <?php $i=1;foreach($data['details'] as $detail){ ?>
+        <tr>
+            <td><?= $i ?></td>
+            <td><?= $detail['order_id'] ?></td>
+            <td><?= $detail['product_id'] ?></td>
+            <td><?= $detail['qty'] ?></td>
+            <td><?= $detail['price'] ?></td>
+        </tr>
+        <?php ++$i; } ?>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,26 @@
+<h4 class="w3ls-hdg">My ORDERS</h4>
+<div class="col-xs-6 col-md-6 col-lg-6">
+    <table class="table table-bordered" >
+        <thead>
+        <tr>
+            <th> # </th>
+            <th>order_id</th>
+            <th>payment type</th>
+            <th>date</th>
+            <th> product_info</th>
+        </tr>
+        </thead>
+        <tbody class="viewCart">
+            <?php $i=1;foreach($data['orders'] as $order){ ?>
+            <tr>
+                <td><?= $i ?></td>
+                <td><?= $order['id'] ?></td>
+                <td><?= $order['pay_type'] ?></td>
+                <td><?= $order['date'] ?></td>
+                <td><a href="/orders/detail/<?= $order['id'] ?>">detail</a></td>
+            </tr>
+            <?php ++$i; } ?>
+        </tbody>
+    </table>
+
+</div>

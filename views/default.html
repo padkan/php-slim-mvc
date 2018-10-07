@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?= Config::get('site_name'); ?></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="/css/ct-navbar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-ct-blue navbar-fixed-top " role="navigation">
+    <div class="container">
+
+        <div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-cart my-cart-icon" >
+                            <span class="badge badge-notify my-cart-badge label"></span>
+                        </i>
+                        <p>cart</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="pe-7s-home" >
+                            <span class="label"></span>
+                        </i>
+                        <p>home</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/contacts/index">
+                        <i class="pe-7s-call" >
+                            <span class="label"></span>
+                        </i>
+                        <p>contact</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/products/index">
+                        <i class="pe-7s-menu" >
+                            <span class="label"></span>
+                        </i>
+                        <p>products</p>
+                    </a>
+                </li>
+
+                <?php if(Session::get('login')){ ?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="pe-7s-user"></i>
+                            <p>Account</p>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/orders/index">My Order</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/users/logout">log out</a></li>
+                        </ul>
+                    </li>
+                <?php }else { ?>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="pe-7s-key"></i>
+                        <p>Login / Register</p>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/users/login">Login</a></li>
+                        <li><a href="/users/register">register</a></li>
+                    </ul>
+                </li>
+
+
+                <?php } ?>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        <div class="navbar-header navbar-right">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="/">
+                <div class="brand"> <?=Config::get('site_name')?></div>
+            </a>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+<!--  end navbar -->
+    <div class="container">
+        <div class="starter-template">
+            <?php  if(Session::hasFlash()) { ?>
+                <div class="alert alert-info" role="alert">
+                    <?php Session::flash() ?>
+                </div>
+            <?php } ?>
+            <?= $data['content'] ?>
+        </div>
+    </div>
+    <script src="/js/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="/js/ct-navbar.js"></script>
+    <script type='text/javascript' src="/js/jquery.mycart.js"></script>
+    <script src="/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<h4 class="w3ls-hdg">Confimation and Pay</h4>
+<div class="col-xs-6 col-md-6 col-lg-6">
+    <p>Reference ID : <?= Session::get('refId') ?></p>
+    <p>total : <?= Session::get('invoiceTotal') ?></p>
+    <p>Method : <?= $data['pay_type'] ?></p>
+    <?php if(Session::get('login')){ ?>
+        <button  onclick="confirmPay()"  class="btn btn-success">Confirm !</button>
+    <?php }else { ?>
+        <p>you should <a href="/users/login">login</a> first!</p>
+    <?php } ?>
+</div>

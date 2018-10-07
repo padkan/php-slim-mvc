@@ -1,0 +1,33 @@
+<h4 class="w3ls-hdg">YOUR ORDER</h4>
+
+<form method="post" action="">
+<div class="col-xs-6 col-md-6 col-lg-6">
+    <table class="table table-bordered" >
+        <thead>
+        <tr>
+            <th> Product</th>
+            <th> Product Name</th>
+            <th>Quantity</th>
+            <th> Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody class="viewCart">
+        </tbody>
+    </table>
+
+</div>
+<div class="col-xs-6 col-md-6 col-lg-6">
+    <div class="form-group">
+        <label for="pay_type">pay type</label>
+        <br/>
+        <input type="radio" name="pay_type" value="master" checked="checked"> Master <img src="/img/master.png" />
+        <input type="radio" name="pay_type" value="visa"> Visa <img src="/img/visa.jpg" />
+    </div>
+    <?php if(Session::get('login')){ ?>
+        <button type="submit" onclick="clearBasket()"  class="btn btn-success">Place Order</button>
+    <?php }else { ?>
+        <p>you should <a href="/users/login">login</a> first!</p>
+    <?php } ?>
+</div>
+</form>
